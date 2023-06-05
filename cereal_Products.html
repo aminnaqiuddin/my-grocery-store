@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Cereal Products</title>
+    <link rel="stylesheet" href="cerealproduct_style.css">
+</head>
+<body>
+    <header>
+        <h1>Cereal Products</h1>
+    </header>
+
+    <table>
+        <table border="1">
+        <tr>
+            <th>Product</th>
+            <th>Description</th>
+            <th>Price</th>
+            <th>Quantity</th>
+        </tr>
+        <tr>
+            <td>
+                <img src="KOKO KRUNCH .png" alt="Koko Krunch" width="100" height="100">
+            </td>
+            <td>
+                <strong>Brand Name:</strong> Nestle<br>
+                Nestle Koko Krunch Cereal 300g
+            </td>
+            <td>RM 12.45</td>
+            <td>
+                <input id="quantity-kokokrunch" type="number" value="0" min="0" max="10">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <img src="milo cereal.jpg" alt="Milo Cereal" width="100" height="100">
+            </td>
+            <td>
+                <strong>Brand Name:</strong> Nestle<br>
+                Nestle Milo Cereal 330g
+            </td>
+            <td>RM 12.45</td>
+            <td>
+                <input id="quantity-milocereal" type="number" value="0" min="0" max="10">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <img src="honey stars.jpg" alt="Honey Stars" width="100" height="100">
+            </td>
+            <td>
+                <strong>Brand Name:</strong> Nestle<br>
+                Nestle Honey Stars Cereal 300g
+            </td>
+            <td>RM 12.45</td>
+            <td>
+                <input id="quantity-honeystars" type="number" value="0" min="0" max="10">
+            </td>
+        </tr>
+    </table><br>
+
+    <button onclick="goBack()">Go Back</button>
+    <button onclick="goToPayment()">Proceed to Payment</button>
+
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+
+        function goToPayment() {
+            var quantityKokoKrunch = document.getElementById("quantity-kokokrunch").value;
+            var quantityMiloCereal = document.getElementById("quantity-milocereal").value;
+            var quantityHoneyStars = document.getElementById("quantity-honeystars").value;
+
+            sessionStorage.setItem("quantityKokoKrunch", quantityKokoKrunch);
+            sessionStorage.setItem("quantityMiloCereal", quantityMiloCereal);
+            sessionStorage.setItem("quantityHoneyStars", quantityHoneyStars);
+
+            window.location.href = "payment2.html";
+        }
+    </script>
+
+</body>
+</html>

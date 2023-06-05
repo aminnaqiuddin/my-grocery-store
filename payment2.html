@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            background-image: url("homepagebg.jpg");
+        }
+    </style>
+    <title>Payment</title>
+    <link rel="stylesheet" href="payment2.css">
+</head>
+<body>
+    <header>
+        <h1>Payment</h1>
+    </header>
+
+    <div class="order-summary">
+        <h2>Order Summary</h2>
+        <table border="1">
+            <tr>
+                <th>Product</th>
+                <th>Quantity</th>
+                <th>Price</th>
+                <th>Total</th>
+            </tr>
+            <tr>
+                <td>Fresh Milk</td>
+                <td id="quantity-milk"></td>
+                <td>RM 7.90</td>
+                <td id="total-milk"></td>
+            </tr>
+            <tr>
+                <td>Chocolate Milk</td>
+                <td id="quantity-chocomilk"></td>
+                <td>RM 8.30</td>
+                <td id="total-chocomilk"></td>
+            </tr>
+            <tr>
+                <td>Natural Yogurt Drink</td>
+                <td id="quantity-yogurtdrink"></td>
+                <td>RM 6.00</td>
+                <td id="total-yogurtdrink"></td>
+            </tr>
+            <tr>
+                <td>Koko Krunch Cereal</td>
+                <td id="quantity-kokokrunch"></td>
+                <td>RM 12.45</td>
+                <td id="total-kokokrunch"></td>
+            </tr>
+            <tr>
+                <td>Milo Cereal</td>
+                <td id="quantity-milocereal"></td>
+                <td>RM 12.45</td>
+                <td id="total-milocereal"></td>
+            </tr>
+            <tr>
+                <td>Honey Stars Cereal</td>
+                <td id="quantity-honeystars"></td>
+                <td>RM 12.45</td>
+                <td id="total-honeystars"></td>
+            </tr>
+            <tr>
+                <td colspan="3">Overall Total:</td>
+                <td id="overall-total"></td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="payment-details">
+        <h2>Payment Details</h2>
+        <form id="payment-form" action="process_payment.php" method="POST">
+            <label for="card-number">Card Number:</label>
+            <input type="text" id="card-number" name="card-number" required><br>
+    
+            <label for="expiry-date">Expiry Date:</label>
+            <input type="text" id="expiry-date" name="expiry-date" required><br>
+    
+            <label for="cvv">CVV:</label>
+            <input type="text" id="cvv" name="cvv" required><br>
+    
+            <button type="button" id="payment-button">Pay Now</button>
+        </form>
+    </div>
+
+    <button onclick="goBack()">Go Back</button>
+
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+
+    
+    document.getElementById("payment-button").addEventListener("click", function() {
+        
+        alert("Payment Successful. Thank you for purchasing from us.");
+
+        sessionStorage.clear();
+
+        window.location.href = "index.html";
+    });
+
+        var quantityMilk = sessionStorage.getItem("quantityMilk") || 0;
+        var quantityChocomilk = sessionStorage.getItem("quantityChocomilk") || 0;
+        var quantityYogurtdrink = sessionStorage.getItem("quantityYogurtdrink") || 0;
+        var quantityKokoKrunch = sessionStorage.getItem("quantityKokoKrunch") || 0;
+        var quantityMiloCereal = sessionStorage.getItem("quantityMiloCereal") || 0;
+        var quantityHoneyStars = sessionStorage.getItem("quantityHoneyStars") || 0;
+
+        document.getElementById("quantity-milk").textContent = quantityMilk;
+        document.getElementById("quantity-chocomilk").textContent = quantityChocomilk;
+        document.getElementById("quantity-yogurtdrink").textContent = quantityYogurtdrink;
+        document.getElementById("quantity-kokokrunch").textContent = quantityKokoKrunch;
+        document.getElementById("quantity-milocereal").textContent = quantityMiloCereal;
+        document.getElementById("quantity-honeystars").textContent = quantityHoneyStars;
+
+        var priceMilk = 7.90;
+        var priceChocomilk = 8.30;
+        var priceYogurtdrink = 6.00;
+        var priceKokoKrunch = 12.45;
+        var priceMiloCereal = 12.45;
+        var priceHoneyStars = 12.45;
+
+        var totalMilk = (quantityMilk * priceMilk).toFixed(2);
+        var totalChocomilk = (quantityChocomilk * priceChocomilk).toFixed(2);
+        var totalYogurtdrink = (quantityYogurtdrink * priceYogurtdrink).toFixed(2);
+        var totalKokoKrunch = (quantityKokoKrunch * priceKokoKrunch).toFixed(2);
+        var totalMiloCereal = (quantityMiloCereal * priceMiloCereal).toFixed(2);
+        var totalHoneyStars = (quantityHoneyStars * priceHoneyStars).toFixed(2);
+
+        document.getElementById("total-milk").textContent = "RM " + totalMilk;
+        document.getElementById("total-chocomilk").textContent = "RM " + totalChocomilk;
+        document.getElementById("total-yogurtdrink").textContent = "RM " + totalYogurtdrink;
+        document.getElementById("total-kokokrunch").textContent = "RM " + totalKokoKrunch;
+        document.getElementById("total-milocereal").textContent = "RM " + totalMiloCereal;
+        document.getElementById("total-honeystars").textContent = "RM " + totalHoneyStars;
+
+        var overallTotal = (
+            parseFloat(totalMilk) +
+            parseFloat(totalChocomilk) +
+            parseFloat(totalYogurtdrink) +
+            parseFloat(totalKokoKrunch) +
+            parseFloat(totalMiloCereal) +
+            parseFloat(totalHoneyStars)
+        ).toFixed(2);
+
+        document.getElementById("overall-total").textContent = "RM " + overallTotal;
+    </script>
+</body>
+</html>
+
+

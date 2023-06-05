@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dairy Products</title>
+    <link rel="stylesheet" href="dairyproduct_style.css">
+</head>
+<body>
+    <header>
+        <h1>Dairy Products</h1>
+    </header>
+
+    <table>
+        <table border="1">
+        <tr>
+            <th>Product</th>
+            <th>Description</th>
+            <th>Price</th>
+            <th>Quantity</th>
+        </tr>
+        <tr>
+            <td>
+                <img src="pure fresh milk.jpg" alt="Fresh Milk" width="100" height="100">
+            </td>
+            <td>
+                <strong>Brand Name:</strong> Farm Fresh<br>
+                Fresh cow's milk, available in 1L
+            </td>
+            <td>RM 7.90</td>
+            <td>
+                <input id="quantity-milk" type="number" value="0" min="0" max="10">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <img src="chocomilk.jpeg" alt="Chocolate Milk" width="100" height="100">
+            </td>
+            <td>
+                <strong>Brand Name:</strong> Farm Fresh<br>
+                Premium chocolate milk, available in 1L
+            </td>
+            <td>RM 8.30</td>
+            <td>
+                <input id="quantity-chocomilk" type="number" value="0" min="0" max="10">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <img src="yogurt drink.jpg" alt="Natural Yogurt Drink" width="100" height="100">
+            </td>
+            <td>
+                <strong>Brand Name:</strong> Farm Fresh<br>
+                Natural yogurt drink, available in 700mL
+            </td>
+            <td>RM 6.00</td>
+            <td>
+                <input id="quantity-yogurtdrink" type="number" value="0" min="0" max="10">
+            </td>
+        </tr>
+    </table><br>
+
+    <button onclick="goBack()">Go Back</button>
+    <button onclick="goToPayment()">Proceed to Payment</button>
+
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+
+        function goToPayment() {
+            var quantityMilk = document.getElementById("quantity-milk").value;
+            var quantityChocomilk = document.getElementById("quantity-chocomilk").value;
+            var quantityYogurtdrink = document.getElementById("quantity-yogurtdrink").value;
+
+            sessionStorage.setItem("quantityMilk", quantityMilk);
+            sessionStorage.setItem("quantityChocomilk", quantityChocomilk);
+            sessionStorage.setItem("quantityYogurtdrink", quantityYogurtdrink);
+
+            window.location.href = "payment2.html";
+        }
+    </script>
+
+</body>
+</html>
+

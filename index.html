@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="homepage_style.css">
+<title>Dairy & Crunch</title>
+</head>
+<body>
+
+<h1>Dairy & Crunch</h1><br><br>
+<h2>Welcome to Dairy & Crunch online store.</h2>
+<h3>Your number one destination for dairy and cereal products.</h3><br><br>
+
+<form>
+    <label for="username">Username:</label><br>
+    <input type="text" id="username" name="username"><br>
+    <label for="pwd">Password:</label><br>
+    <input type="password" id="pwd" name="pwd"><br><br>
+    <input type="button" value="Log in" onclick="login()">
+    <input type="button" value="Register" onclick="registerNewUser()">
+</form>
+
+<p>Please log in or register new account to continue shopping on our store.</p><br><br>
+
+
+<script>
+    function login() {
+        var username = document.getElementById("username").value;
+        var password = document.getElementById("pwd").value;
+        
+        window.location.href = "realproductlist.html";
+    }
+</script>
+
+<script>
+    function registerNewUser() {
+         window.location.href = "registration.html";
+    }
+</script>
+
+<br><br>
+<p>&copy; All rights reserved. <i>Dairy & Crunch  Sdn. Bhd.</i></p>
+
+</body>
+</html>

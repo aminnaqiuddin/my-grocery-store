@@ -1,0 +1,43 @@
+.order-summary,
+.payment-details,
+button {
+    margin-bottom: 20px;
+}
+
+.order-summary,
+.payment-details {
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.order-summary table {
+    width: 100%;
+}
+
+.payment-details form {
+    display: flex;
+    flex-direction: column;
+}
+
+.payment-details input[type="text"] {
+    margin-bottom: 10px;
+    padding: 5px;
+}
+
+.payment-details button {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.payment-details button:hover {
+    background-color: #45a049;
+}
+
+h1 {
+    text-align: center;
+}

@@ -1,0 +1,35 @@
+body {
+    background-image: url(homepagebg.jpg);
+  }
+  
+  h1 {
+    text-align: center;
+    margin: 50px;
+    padding: 20px;
+    border: 1px solid;
+    background-color: beige;
+  }
+  
+  p {
+    text-align: center;
+    font-size: larger;
+    color: black;
+    margin-bottom: 10px;
+    margin-top: 0px;
+  }
+  
+  table {
+    text-align: center;
+    font-size: larger;
+    margin: 0 auto; /* Center the table */
+    height: 50%; /* Increase the size of the table */
+    max-height: 800px; /* Set a maximum width for the table */
+    width: 50%;
+    background-color: beige;
+  }
+
+  button {
+    display: block;
+    margin: 0 auto;
+    margin-bottom: 10px;
+}
